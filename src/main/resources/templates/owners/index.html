@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Все автовладельцы</title>
+</head>
+<body>
+
+<h3>Список всех автовладельцев</h3>
+
+<div th:each="owner : ${owners}">
+  <a th:href="@{/owners/{id}(id=${owner.getId()})}"
+     th:text="${owner.getFullName()}">owner</a>
+</div>
+
+<p><a th:href="@{/owners/new}">Регистрация нового автовладельца</a></p>
+<p><a th:href="@{/home}">На главную страницу</a></p>
+
+</body>
+</html>

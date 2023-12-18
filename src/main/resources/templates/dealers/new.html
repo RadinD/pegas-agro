@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация дилера</title>
+</head>
+<body>
+
+<h3>Регистрация нового дилера</h3>
+
+<form th:method="POST" th:action="@{/dealers}" th:object="${dealer}">
+
+    <div>
+        <label for="name">Название</label>
+        <input type="text" th:field="*{name}" id="name"/>
+
+        <br/>
+        <br/>
+
+        <label for="email">E-mail</label>
+        <input type="text" th:field="*{email}" id="email"/>
+
+        <br/>
+        <br/>
+
+        <label for="agentFullName">ФИО представителя</label>
+        <input type="text" th:field="*{agentFullName}" id="agentFullName"/>
+
+        <br/>
+        <br/>
+
+        <input type="submit" value="Зарегистрировать дилера"/>
+
+    </div>
+
+</form>
+
+
+</body>
+</html>

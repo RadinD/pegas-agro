@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор владельца</title>
+</head>
+<body>
+
+<h3>Назначение владельца авто</h3>
+
+<form th:method="PATCH" th:action="@{/cars/{id}(id=${car.getId()})}" >
+        <label for="ownerId">Введите ID владельца</label>
+        <input type="text" th:name="ownerId" id="ownerId"/>
+        <input type="submit" value="Назначить!"/>
+</form>
+
+</body>
+</html>

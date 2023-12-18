@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация автовладельца</title>
+</head>
+<body>
+
+<h3>Регистрация нового автовладельца</h3>
+
+<form th:method="POST" th:action="@{/owners}" th:object="${owner}">
+
+    <div>
+        <label for="fullName">ФИО</label>
+        <input type="text" th:field="*{fullName}" id="fullName"/>
+
+        <br/>
+        <br/>
+
+        <label for="phoneNumber">Телефон</label>
+        <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/>
+
+        <br/>
+        <br/>
+
+        <label for="email">E-mail</label>
+        <input type="text" th:field="*{email}" id="email"/>
+
+        <br/>
+        <br/>
+
+        <input type="submit" value="Зарегистрировать автовладельца"/>
+
+    </div>
+
+
+</form>
+
+
+</body>
+</html>

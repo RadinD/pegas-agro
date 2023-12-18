@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Расчёт пути</title>
+</head>
+<body>
+
+<h3>Расчёт пути по GPS-логу</h3>
+
+<span>Загрузить .log-фаил</span>
+
+<form th:method="POST" enctype="multipart/form-data" th:action="@{/trackers}">
+
+    <div><!--        <label for="numberPlate">Номерной знак</label>-->
+        <!--        <input type="text" th:field="*{numberPlate}" id="numberPlate"/>-->
+
+
+        <span>File to upload:</span>
+        <input type="file" name="multipartFile">
+        <br/>        <br/>
+
+
+        <input type="submit" value="Загрузить и провести расчёт"/>
+
+    </div></form>
+
+
+</br>    <p><a th:href="@{/home}">Перейти на домашнюю страницу</a></p>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация автомобиля</title>
+</head>
+<body>
+
+<h3>Регистрация нового автомобиля</h3>
+
+<form th:method="POST" th:action="@{/cars}" th:object="${car}">
+
+    <div>
+        <label for="numberPlate">Номерной знак</label>
+        <input type="text" th:field="*{numberPlate}" id="numberPlate"/>
+
+        <br/>
+        <br/>
+
+        <label for="buildDate">Дата сборки</label>
+        <input type="date" th:field="*{buildDate}" id="buildDate"/>
+
+        <br/>
+        <br/>
+
+        <input type="submit" value="Зарегистрировать автомобиль"/>
+
+    </div>
+
+</form>
+
+</body>
+</html>

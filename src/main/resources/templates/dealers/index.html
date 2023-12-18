@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все дилеры</title>
+</head>
+<body>
+
+<h3>Список всех дилеров</h3>
+
+<div th:each="dealer : ${dealers}">
+    <a th:href="@{/dealers/{id}(id=${dealer.getId()})}"
+       th:text="${dealer.getName()}">dealer</a>
+</div>
+
+<p><a th:href="@{/dealers/new}">Регистрация нового дилера</a></p>
+<p><a th:href="@{/home}">На главную страницу</a></p>
+
+</body>
+</html>

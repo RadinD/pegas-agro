@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор дилера</title>
+</head>
+<body>
+
+<h3>Назначение дилера владельцу</h3>
+
+<form th:method="PATCH" th:action="@{/owners/{id}(id=${owner.getId()})}" >
+    <label for="dealerId">Введите ID дилера</label>
+    <input type="text" th:name="dealerId" id="dealerId"/>
+    <input type="submit" value="Назначить!"/>
+</form>
+
+</body>
+</html>

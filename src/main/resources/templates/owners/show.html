@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Автовладелец</title>
+</head>
+<body>
+
+<h3>Карточка автовладельца</h3>
+
+<p>
+    <i><span>Уникальный идентификатор автовладельца в системе: </span></i>
+    <span th:text="${owner.getId()}">ownerId</span>
+</p>
+
+<p>
+    <i><span>ФИО: </span></i>
+    <span th:text="${owner.getFullName()}">ownerFullName</span>
+</p>
+
+<p>
+    <i><span>Телефон: </span></i>
+    <span th:text="${owner.getPhoneNumber()}">ownerPhoneNumber</span>
+</p>
+
+<p>
+    <i><span>E-mail: </span></i>
+    <span th:text="${owner.getEmail()}">ownerEmail</span>
+</p>
+
+
+<p>
+    <i><span>Дилер : </span></i>
+    <span th:if="${dealer==null}">в данный момент автовладелец не обслуживается ни у одного дилера</span>
+    <span th:if="${dealer!=null}">
+        <a th:href="@{/dealers/{id}(id=${dealer.getId()})}"
+           th:text="${dealer.getName()}">dealer</a>
+    </span>
+
+</p>
+
+
+<i><span>Автомобили владельца :</span></i>
+<div th:each="car : ${cars}">
+    <a th:href="@{/cars/{id}(id=${car.getId()})}"
+       th:text="${car.getNumberPlate()}">car</a>
+</div>
+
+<span th:if="${cars.isEmpty()}">отсутствуют</span>
+
+
+<p><a th:href="@{/owners/{id}/selectDealer(id=${owner.getId()})}">Назначить дилера</a></p>
+
+</br>
+</br>
+<form th:method="DELETE" th:action="@{/owners/{id}(id=${owner.getId()})}">
+    <input type="submit" value="Удалить автовладельца"/>
+</form>
+
+
+<p><a th:href="@{/owners}">Список всех автовладельцев</a></p>
+
+</body>
+</html>

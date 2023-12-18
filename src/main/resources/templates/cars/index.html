@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все автомобили</title>
+</head>
+<body>
+
+<h3>Список всех автомобилей</h3>
+
+<div th:each="car : ${cars}">
+    <a th:href="@{/cars/{id}(id=${car.getId()})}"
+       th:text="${car.getNumberPlate()}">car</a>
+</div>
+
+<p><a th:href="@{/cars/new}">Регистрация нового автомобиля</a></p>
+<p><a th:href="@{/home}">На главную страницу</a></p>
+
+</body>
+</html>

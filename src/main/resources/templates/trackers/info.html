@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат расчёта</title>
+</head>
+<body>
+
+<h3>Результаты расчёта</h3>
+
+<p>
+    <i><span>Активный пройденный путь составляет: </span></i>
+    <span th:text="${result}" >result</span>
+    <span> метров </span>
+</p>
+
+</br>
+<p><a th:href="@{/trackers}">Перейти к расчёту пути по GPS-логу</a></p>
+
+</br>
+<p><a th:href="@{/home}">Перейти на домашнюю страницу</a></p>
+
+
+</body>
+</html>

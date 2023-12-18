@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Автомобиль</title>
+</head>
+<body>
+
+<h3>Карточка автомобиля</h3>
+
+<p>
+    <i><span>Уникальный идентификатор автомобиля в системе: </span></i>
+    <span th:text="${car.getId()}">carId</span>
+</p>
+
+<p>
+    <i><span>Номерной знак: </span></i>
+    <span th:text="${car.getNumberPlate()}">carNumberPlate</span>
+</p>
+
+<p>
+    <i><span>Дата сборки: </span></i>
+    <span th:text="${car.getBuildDate()}">carBuildDate</span>
+</p>
+
+<p>
+    <i><span>Владелец автомобиля: </span></i>
+    <span th:if="${owner==null}">отсутствует</span>
+    <a th:href="@{/owners/{id}(id=${owner.getId()})}"
+       th:text="${owner.getFullName()}">owner</a>
+</p>
+
+<p><a th:href="@{/cars/{id}/selectOwner(id=${car.getId()})}">Назначить владельца</a></p>
+
+
+<form th:method="DELETE" th:action="@{/cars/{id}(id=${car.getId()})}">
+    <input type="submit" value="Удалить автомобиль"/>
+</form>
+
+<p><a th:href="@{/cars}">Список всех автомобилей</a></p>
+
+</body>
+</html>
